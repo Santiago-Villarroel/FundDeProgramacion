@@ -1,0 +1,45 @@
+#include"stdafx.h"
+#include <iostream>
+#include"conio.h"
+#include"math.h"
+
+using namespace std;
+
+void main()
+{
+ float a,b,c,x1,x2,d;
+ cout<<"ingrese a: "; cin>>a;
+ cout<<"ingrese b: ";cin>>b;
+ cout<<"ingrese c: ";cin>>c;
+d=pow(b,2)-4*a*c;
+if (a==0)
+	cout<<"No hay solucion";
+else
+  if (d>0)
+  {
+	   x1=(-b+sqrt(pow(b,2)-4*a*c))/(2*a);
+       x2=(-b+sqrt(pow(b,2)-4*a*c))/(2*a);
+	   cout<<"El resultado es: "<<x1<<endl;
+	   cout<<"El resultado es: "<<x2<<endl;
+  }
+  else
+	  if (d==0)
+	  {
+		  x1=(-b)/(2*a);
+		  cout<<"El resultado unico es: "<<x1<<endl;
+	  }
+	  else
+		  cout<<"soluciones imaginarias"<<endl;
+           x1=(-b)/(2*a);
+		   x2=sqrt(-d)/2*a;
+		   cout<<"El resultado imaginarion de x1 es: "<<x1<<"+"<<x2<<"i"<<endl;
+		   cout<<"El resultado imaginarion de x2 es: "<<x1<<"-"<<x2<<"i"<<endl;
+       
+		 
+		  
+
+getch();
+
+
+
+}
