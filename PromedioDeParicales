@@ -1,0 +1,91 @@
+Pseudocódigo Pseint
+
+Algoritmo PromedioDeParciales
+	Definir parcial1,parcial2,parcial3,parcial4,promedio Como Real
+	Escribir 'Ingrese la nota del primer parcial'
+	Leer parcial1
+	Si (parcial1<0) | (parcial1>10) Entonces
+		Escribir 'El valor no es válido, ingrese un valor del 0 al 10'
+	SiNo
+		Escribir 'Ingrese la nota del segundo parcial'
+		Leer parcial2
+	FinSi
+	Si (parcial2<0) |  (parcial2>10) Entonces
+		Escribir 'El valor no es válido, ingrese un valor del 0 al 10'
+	SiNo
+		Escribir 'Ingrese la nota del tercer parcial'
+		Leer parcial3
+	FinSi
+	Si (parcial3<0) |  (parcial3>10) Entonces
+		Escribir 'El valor no es válido, ingrese un valor del 0 al 10'
+	SiNo
+		Escribir 'Ingrese la nota del cuarto parcial'
+		Leer parcial4
+	FinSi
+	Si (parcial4<0) |  (parcial4>10) Entonces
+		Escribir 'El valor no es válido, ingrese un valor del 0 al 10'
+	FinSi
+	promedio <- (parcial1+parcial2+parcial3+parcial4)/4
+	Si (promedio>=6) & (promedio<=10) Entonces
+		Escribir "Aprobado ", promedio
+	sino 
+		Si (promedio>=5) & (promedio<6) Entonces
+			Escribir "Derecho Extraordinario", promedio
+		sino 
+			Si (promedio>=2) & (promedio<5)Entonces
+				Escribir "Derecho a título"
+			sino
+				Escribir "Sin derecho a título"
+			FinSi
+		FinSi
+	
+		
+	FinSi
+FinAlgoritmo
+
+En C++
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+int main()
+{
+	float promedio,parcial1, parcial2, parcial3, parcial4;
+	cout<<"Ingrese la nota del primer parcial: ";
+	cin>>parcial1;
+
+	cout<<"Ingrese la nota del segundo parcial: ";
+	cin>>parcial2;
+
+	cout<<"Ingrese la nota del tercer parcial: ";
+	cin>>parcial3;
+
+	cout<<"Ingrese la nota del cuarto parcial: ";
+	cin>>parcial4;
+
+	promedio=(parcial1+parcial2+parcial3+parcial4)/4;
+	cout<<"El promedio es: "<<promedio<<endl;
+	if ((parcial1>=0 && parcial1<=10) && (parcial2>=0 && parcial2<=10) && (parcial3>=0 && parcial3<=10) && (parcial4>=0 && parcial4<=10))
+	{
+		
+		if (promedio>=0 && promedio<2)
+			cout <<"sin derecho a titulo";
+		else 
+			if (promedio>=2 && promedio<5)
+				cout<< "Con derecho a titulo";
+			else
+			if (promedio>=5 && promedio<6)
+				cout<< "Con derecho a extraordinario";
+			else
+				cout<< "Aprobado";
+	}
+	else 
+		cout<<"Valores inválidos";
+	getch ();
+	return (0);
+
+
+}
