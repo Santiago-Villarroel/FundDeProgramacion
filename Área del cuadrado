@@ -1,0 +1,14 @@
+#include<iostream>
+#include"conio.h"
+
+using namespace std;
+
+void main ()
+{
+	float lado, area;
+	cout<<"Ingrese el lado del cuadrado: "; cin>>lado;
+	area=lado*lado;
+	cout<<"El área del cuadrado es: "<<area;
+	getch();
+
+}
