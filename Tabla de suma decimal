@@ -1,0 +1,18 @@
+#include"stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main()
+{
+	int n, i, a;
+	cout<<"ingrese un numero del 1 al 10: "; cin>>n;
+	i=1;
+	for (i>0;i<11;i++)
+	{
+		a=n+i;
+		cout<<n<<"+"<<i<<"="<<a<<endl;
+	}
+	getch();
+}
