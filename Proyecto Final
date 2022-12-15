@@ -1,0 +1,208 @@
+#include <iostream>
+#include <string>
+#include"conio.h"
+#define MAX 100
+#include <vector>
+#include <cstdlib>
+
+using namespace std;
+
+void login(string usuario[], string contrasena[], string correo[], string NIT[], int n);
+void signup(string usuario[], string contrasena[], string correo[], string NIT[], int n);
+
+int main()
+{
+    int n = 0, a, b, x, y, z, w, x1, a1, a2, b1, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, w1, c;
+    int opcion;
+    string usuario[MAX], contrasena[MAX], correo[MAX], NIT[MAX];
+    bool repetir = true;
+    do
+    {
+        cout << "\n\t\t\t Bienvenido!!" << endl;
+        cout << "\t\t\t--------------" << endl;
+        cout << "\t\t1. Registrar nueva cuenta." << endl;
+        cout << "\t\t2. Ingresar." << endl;
+        cout << "\t\t0. Salir." << endl;
+        cout << "\tIngrese una opcion: "; cin >> opcion;
+        switch (opcion)
+        {
+        case 1:
+            signup(usuario, contrasena, correo, NIT, n);
+            cout << "\nUsuario registrado correctamente" << endl;
+            n++;
+            break;
+        case 2:
+            login(usuario, contrasena, correo, NIT, n);
+            int opcion;
+            do {
+                system("cls");
+                cout << "\n\nFormularios mesuales: " << endl;
+                cout << "1. F 200" << endl;
+                cout << "2. F 400" << endl;
+                cout << "0. SALIR" << endl;
+                cout << "\n\nFormulario anual: " << endl;
+                cout << "3. F 510" << endl;
+                cout << "0. SALIR" << endl;
+
+                cout << "\nIngrese una opcion: ";
+                cin >> opcion;
+
+                switch (opcion) {
+                case 1:
+                    cout << "ingrese el total de sus ventas mensuales: ";
+                    cin >> a;
+                    cout << "ingrese el total de sus compras mensuales: ";
+                    cin >> b;
+                    x = a * 0.13;
+                    y = b * 0.13;
+                    cout << "debito del periodo: " << x<<endl;
+                    cout << "credito del periodo: " << y<<endl;
+                    if (y > x) {
+                        z = y - x;
+                        cout << "impuestos le debe esta cantidad: " << z<<endl;
+                    }
+                    else {
+                        w = x - y;
+                        cout << "sus impuestos a pagar son: " << w<<endl;
+                    }
+
+                    system("pause>nul"); // Pausa
+                    break;
+
+                case 2:
+                    cout << "ingrese el total de sus ventas mensuales: ";
+                    cin >> a1;
+                    x1 = a1 * 0.03;
+                    cout << "impuesto determinado: " << x1<<endl;
+                    cout << "IUE pagado a compensar del anterior formulario? ";
+                    cin >> b1;
+                    c = b1 - x1;
+                    cout << "al tener IUE sobrante le queda esta cantidad: " << c;
+
+
+                    system("pause>nul"); // Pausa
+                    break;
+
+                case 3:
+                    cout << "ingrese fecha de ejercicio ";
+                    cin >> z1;
+                    cout << "ingrese fecha apertura ";
+                    cin >> z2;
+                    cout << "ingrese fecha de cierre ";
+                    cin >> z3;
+                    cout << "ingrese los ingresos percibidos de oficio u otros ingresos gravados: ";
+                    cin >> z4;
+                    z5 = z4 * 0.13;
+                    cout << "impuesto al valor agregado " << z5<<endl;
+                    z6 = z4 - z5;
+                    cout << "total ingresos gravados " << z6<<endl;
+                    z7 = z4 * 0.50;
+                    cout << " 50 % de los ingresos percibidos de odicio u otros" << z7<<endl;
+                    z8 = z6 - z7;
+                    cout << "Utilidad imponible " << z8<<endl;
+                    z9 = z8 * 0.25;
+                    cout << "Impuesto determinado " << z9<<endl;
+                    cout << "ingrese su importe de credito fiscal del f110: ";
+                    cin >> w1;
+                    z10 = z9 / 2;
+                    if (w1 > z10) {
+                        cout << "su credito fiscal pasa el 50% de la utilidad imponible, se utilizara el 50% solamente: " << z10<<endl;
+                        cout << "saldo definitivo a favor del fisco" << z10;
+                    }
+                    else {
+                        cout << "su credito fiscal es: " << w1<<endl;
+                        cout << "saldo definitivo a favor del fisco" << w1;
+                    }
+
+                    system("pause>nul"); // Pausa
+                    break;
+
+                case 4:
+                    // Lista de instrucciones de la opción 4
+
+                    system("pause>nul"); // Pausa
+                    break;
+
+                case 0:
+                    cout << "Usted no desea ninguna opción. " << endl;
+                    repetir = false;
+                    break;
+                }
+            } while (repetir);
+
+            return 0;
+            break;
+
+        case 0:
+            cout << "Gracias por utilizar nuestros servicios!!";
+            break;
+        default:
+            cout << "Ingrese una opcion valida" << endl;
+            break;
+        }
+    } while (opcion != 0);
+}
+
+void login(string usuario[], string contrasena[], string correo[], string NIT[], int n)
+{
+    string logg, cont;
+    int i = 0, j = 0;
+    bool band = true;
+    do
+    {
+        cin.ignore();
+        cout << "\nIngrese su Usuario, su NIT o  su correo electronico: "; getline(cin, logg);
+        cout << "Ingrese la contrasena: ";
+        char caracter;
+        caracter = _getch();
+        cont = "";
+
+        while (caracter != 13)
+        {
+            if (caracter != 8)
+            {
+                cont.push_back(caracter);
+                cout << "*";
+            }
+            else
+            {
+                if (cont.length() > 0)
+                {
+                    cout << "\b \b";
+                    cont.pop_back();
+                }
+            }
+            caracter = _getch();
+        }
+        //cin >> cont;
+        for (i; i < MAX; i++)
+        {
+            if ((usuario[i] == logg || correo[i] == logg || NIT[i] == logg) && contrasena[i] == cont)
+            {
+                cout << "\nBienvenido al sistema" << endl;
+                band = true;
+                break;
+            }
+            else
+                band = false;
+        }
+
+        if (band == false)
+        {
+            cout << "\nDatos incorrectos" << endl;
+            j++;
+        }
+    } while (band == false && j < 3);
+    if (j >= 3)
+        cout << "Intentos permitidos excedidos" << endl;
+}
+void signup(string usuario[], string contrasena[], string correo[], string NIT[], int n)
+{
+    int i = n;
+    cin.ignore();
+    cout << "\nIngrese su nombre: "; getline(cin, usuario[i]);
+    cout << "Ingrese su direccion de correo electronico: "; cin >> correo[i];
+    cout << "Ingrese su NIT: "; cin >> NIT[i];
+    cout << "Crear contrasena: "; cin >> contrasena[i];
+
+}
